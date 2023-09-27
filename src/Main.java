@@ -11,15 +11,17 @@ public class Main {
                 String input = scan.readLine();
                 return parser.apply(input);
             } catch (NumberFormatException e) {
-                System.err.println(e);
+                System.err.println(e); // TODO: Use logger instead of sys err
                 System.out.println("Error parsing input. Please try again.");
             } catch (Exception e) {
                 System.err.println("Error occurred: " + e.getMessage());
             }
         }
     }
+
     public static void main(String[] args) {
-        int test = get_valid_input("Number: ", Integer::parseInt);
-        System.out.println(test);
+        double celsius = get_valid_input("Enter temperature as an integer in celsius: ", Double::parseDouble);
+        double fahrenheit = celsius * (9./5.) + 32;
+        System.out.println("In fahrenheit that is: " + fahrenheit);
     }
 }
