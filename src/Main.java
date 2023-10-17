@@ -5,7 +5,7 @@ import java.io.BufferedReader;
 public class Main {
     private static <T> T get_valid_input(String prompt, Function<String, T> parser) {
         BufferedReader scan = new BufferedReader(new InputStreamReader(System.in));
-        while (true) {
+        do {
             System.out.print(prompt);
             try {
                 String input = scan.readLine();
@@ -16,7 +16,7 @@ public class Main {
             } catch (Exception e) {
                 System.err.println("Error occurred: " + e.getMessage());
             }
-        }
+        } while (true);
     }
 
     public static void main(String[] args) {
